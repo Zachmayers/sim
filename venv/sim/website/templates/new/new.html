@@ -1,0 +1,100 @@
+{% extends "base.html" %} {% block title %}New{% endblock %} {% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>New Simulation</h1>
+
+    <div class="container">
+      <form method="POST" class="form-group form-group-inline">
+        <div class="form-group">
+          <label for="Simulation Name">Simulation Name</label>
+          <input
+            type="Name"
+            class="form-control"
+            id="Simulation Name"
+            name="Simulation Name"
+            placeholder="Enter the name of the simulation"
+          />
+
+          <div class="slidecontainer">
+            <p>Number of PlusOnes: <span id="NumPlusOnes"></span></p>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="50"
+              class="slider"
+              id="PlusOnes"
+              name="PlusOnes"
+            />
+          </div>
+          <div class="slidecontainer">
+            <p>Number of Clients: <span id="NumClients"></span></p>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="50"
+              class="slider2"
+              id="Clients"
+              name="Clients"
+            />
+          </div>
+
+          <div class="slidecontainer">
+            <p>Number of Iterations: <span id="NumIterations"></span></p>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="50"
+              class="slider3"
+              id="Iterations"
+              name="Iterations"
+            />
+          </div>
+
+          <script>
+            var IterationSlider = document.getElementById("Iterations");
+            var IterationOutput = document.getElementById("NumIterations");
+            IterationOutput.innerHTML = IterationSlider.value;
+
+            IterationSlider.oninput = function () {
+              IterationOutput.innerHTML = this.value;
+            };
+          </script>
+
+          <script>
+            var ClientSlider = document.getElementById("Clients");
+            var ClientOutput = document.getElementById("NumClients");
+            ClientOutput.innerHTML = ClientSlider.value;
+
+            ClientSlider.oninput = function () {
+              ClientOutput.innerHTML = this.value;
+            };
+          </script>
+
+          <script>
+            var PlusOneSlider = document.getElementById("PlusOnes");
+            var PlusOneOutput = document.getElementById("NumPlusOnes");
+            PlusOneOutput.innerHTML = PlusOneSlider.value;
+
+            PlusOneSlider.oninput = function () {
+              PlusOneOutput.innerHTML = this.value;
+            };
+          </script>
+          <br />
+          <button type="submit" class="btn btn-primary">
+            Initiallize Simulation
+          </button>
+
+          <script>
+            localStorage.setItem("Test", "{{doodoo}}");
+          </script>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
