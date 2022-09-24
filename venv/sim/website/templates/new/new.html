@@ -3,7 +3,6 @@
 <div class="container">
   <div class="jumbotron">
     <h1>New Simulation</h1>
-
     <div class="container">
       <form method="POST" class="form-group form-group-inline">
         <div class="form-group">
@@ -84,13 +83,65 @@
             };
           </script>
           <br />
+
+          <div class="container" style="padding-right: 400px">
+            {% for activity in activity_name_list %}
+            <div class="row" style="justify-content: space-between">
+              <label for="{{activity}}" style="display: flex; padding: 10px"
+                >{{activity}}</label
+              >
+              <input
+                type="number"
+                max="100"
+                value="100"
+                id="{{activity}}"
+                name="{{activity}}"
+              />
+            </div>
+            {% endfor %}
+          </div>
+
+          <div
+            
+          >
+            <div class="days">
+              <div class="col">
+                <div class="datelabel">
+                  <strong>Friday</strong>
+                </div>
+                {% for i in range(8,24,2) %}
+                <input type="number" id={{i}} name={{i}} class="timeslot">{{i}}:00am</div>
+                {% endfor %}
+              </div>
+              <div class="day">
+                <div class="datelabel">
+                  <strong>Saturday</strong>
+                </div>
+                <div class="timeslot">10:30pm</div>
+              </div>
+              <div class="day">
+                <div class="datelabel">
+                  <strong>Sunday</strong>
+                </div>
+                <div class="timeslot">10:30pm</div>
+              </div>
+              <div class="day">
+                <div class="datelabel">
+                  <strong>Monday</strong>
+                </div>
+                <div class="timeslot">10:30pm</div>
+              </div>
+              <div class="day">
+                <div class="datelabel">
+                  <strong>Tuesday</strong>
+                </div>
+                <div class="timeslot">10:30pm</div>
+              </div>
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary">
             Initiallize Simulation
           </button>
-
-          <script>
-            localStorage.setItem("Test", "{{doodoo}}");
-          </script>
         </div>
       </form>
     </div>
